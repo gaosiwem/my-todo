@@ -1,0 +1,16 @@
+FROM node:8.15.1
+
+### working directory inside the container ###
+WORKDIR "/app"
+## Copy the files to the container
+COPY ./package.json ./
+
+## install the dependeciew
+RUN npm install
+
+COPY . .
+
+## this server is listerning on port 3000
+EXPOSE 3000
+
+CMD ["npm", "start" ]
